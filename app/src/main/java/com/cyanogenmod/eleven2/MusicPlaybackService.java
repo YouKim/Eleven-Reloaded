@@ -3209,7 +3209,14 @@ public class MusicPlaybackService extends Service {
         @Override
         public void onPlayerStateChanged(boolean playWhenReady, int playbackState) {
             if (playbackState == ExoPlayer.STATE_ENDED) {
-
+                if (mNextMediaPath != null) {
+                    setDataSourceImpl(mCurrentMediaPlayer, mNextMediaPath);
+                    loadSrt(mNextMediaPath);
+                    mNextMediaPath = null;
+                    mHandler.sendEmptyMessage(TRACK_WENT_TO_NEXT);
+                } else {
+                    mHandler.sendEmptyMessage(TRACK_ENDED);
+                }
             }
         }
 
