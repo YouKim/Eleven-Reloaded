@@ -37,7 +37,7 @@
             android:layout_alignParentTop="true"
             android:scaleType="centerCrop" />
 
-        <com.cyanogenmod.eleven.widgets.PopupMenuButton
+        <com.cyanogenmod.eleven2.widgets.PopupMenuButton
             android:id="@+id/overflow"
             android:layout_width="@dimen/overflow_width"
             android:layout_height="match_parent"

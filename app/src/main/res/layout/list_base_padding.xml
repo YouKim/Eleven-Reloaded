@@ -22,7 +22,7 @@
 
     <include layout="@layout/loading_empty_container" />
 
-    <com.cyanogenmod.eleven.dragdrop.DragSortListView
+    <com.cyanogenmod.eleven2.dragdrop.DragSortListView
         android:id="@+id/list_base"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

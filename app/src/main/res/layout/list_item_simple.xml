@@ -60,7 +60,7 @@
             android:layout_centerVertical="true"
             android:layout_toLeftOf="@+id/popup_menu_button" />
 
-        <com.cyanogenmod.eleven.widgets.PopupMenuButton
+        <com.cyanogenmod.eleven2.widgets.PopupMenuButton
             android:id="@id/popup_menu_button"
             android:layout_width="@dimen/overflow_width"
             android:layout_height="@dimen/overflow_height"

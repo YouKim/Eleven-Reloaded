@@ -57,7 +57,7 @@
                 android:textSize="@dimen/audio_player_time_text_size"
                 android:textStyle="bold" />
 
-            <com.cyanogenmod.eleven.widgets.RepeatingImageButton
+            <com.cyanogenmod.eleven2.widgets.RepeatingImageButton
                 android:id="@+id/action_button_previous"
                 android:layout_width="@dimen/audio_player_controls_end_button_width"
                 android:layout_height="@dimen/audio_player_controls_end_button_height"
@@ -76,7 +76,7 @@
                 android:layout_marginRight="@dimen/audio_player_divider_horizontal_offset"
                 android:background="@color/now_playing_divider" />
 
-            <com.cyanogenmod.eleven.widgets.ShuffleButton
+            <com.cyanogenmod.eleven2.widgets.ShuffleButton
                 android:id="@+id/action_button_shuffle"
                 android:layout_width="@dimen/audio_player_controls_end_button_width"
                 android:layout_height="@dimen/audio_player_controls_end_button_height"
@@ -107,7 +107,7 @@
                 android:textSize="@dimen/audio_player_time_text_size"
                 android:textStyle="bold" />
 
-            <com.cyanogenmod.eleven.widgets.RepeatingImageButton
+            <com.cyanogenmod.eleven2.widgets.RepeatingImageButton
                 android:id="@+id/action_button_next"
                 android:layout_width="@dimen/audio_player_controls_end_button_width"
                 android:layout_height="@dimen/audio_player_controls_end_button_height"
@@ -125,7 +125,7 @@
                 android:layout_below="@id/audio_player_total_time"
                 android:layout_marginLeft="@dimen/audio_player_divider_horizontal_offset" />
 
-            <com.cyanogenmod.eleven.widgets.RepeatButton
+            <com.cyanogenmod.eleven2.widgets.RepeatButton
                 android:id="@+id/action_button_repeat"
                 android:layout_width="@dimen/audio_player_controls_end_button_width"
                 android:layout_height="@dimen/audio_player_controls_end_button_height"

@@ -14,7 +14,7 @@
      limitations under the License.
 -->
 
-<com.cyanogenmod.eleven.widgets.NoResultsContainer xmlns:android="http://schemas.android.com/apk/res/android"
+<com.cyanogenmod.eleven2.widgets.NoResultsContainer xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/no_results_container"
     android:layout_width="@dimen/no_results_width"
     android:layout_height="wrap_content"
@@ -74,4 +74,4 @@
         android:text="@string/empty_generic_secondary"
         android:textColor="@color/no_results"
         android:textSize="@dimen/no_results_text_secondary" />
-</com.cyanogenmod.eleven.widgets.NoResultsContainer>
+</com.cyanogenmod.eleven2.widgets.NoResultsContainer>

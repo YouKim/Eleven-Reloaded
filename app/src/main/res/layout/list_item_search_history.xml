@@ -29,7 +29,7 @@
         android:paddingRight="@dimen/list_preferred_item_padding"
         android:paddingTop="@dimen/list_item_padding_top">
 
-        <com.cyanogenmod.eleven.widgets.SquareImageView
+        <com.cyanogenmod.eleven2.widgets.SquareImageView
             android:id="@+id/image"
             android:layout_width="@dimen/list_item_image_width"
             android:layout_height="@dimen/list_item_image_height"

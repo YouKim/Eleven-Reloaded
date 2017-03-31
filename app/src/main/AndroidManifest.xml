@@ -14,7 +14,7 @@
      limitations under the License.
  -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.cyanogenmod.eleven">
+    package="com.cyanogenmod.eleven2">
 
     <!-- Used for caching and creating new playlists -->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -45,14 +45,14 @@
     <uses-feature android:name="android.hardware.sensor.accelerometer" />
 
     <application
-        android:name="com.cyanogenmod.eleven.ElevenApplication"
+        android:name=".ElevenApplication"
         android:allowBackup="true"
         android:allowTaskReparenting="true"
         android:hardwareAccelerated="@bool/config_hardwareAccelerated"
         android:icon="@mipmap/ic_launcher_eleven"
         android:label="@string/app_name"
         android:largeHeap="@bool/config_largeHeap"
-        android:taskAffinity="com.cyanogenmod.eleven.task"
+        android:taskAffinity="com.cyanogenmod.eleven2.task"
         android:theme="@style/AppTheme.NoActionBar">
 
         <!-- Searchable -->
@@ -61,7 +61,7 @@
             android:value=".ui.activities.SearchActivity" />
         <!-- Main activity -->
         <activity
-            android:name="com.cyanogenmod.eleven.ui.activities.HomeActivity"
+            android:name=".ui.activities.HomeActivity"
             android:exported="true"
             android:launchMode="singleTop"
             android:theme="@style/AppTheme.NoActionBar"
@@ -84,7 +84,7 @@
                 <data android:mimeType="vnd.android.cursor.dir/artists" />
             </intent-filter>
             <intent-filter>
-                <action android:name="com.cyanogenmod.eleven.AUDIO_PLAYER" />
+                <action android:name="com.cyanogenmod.eleven2.AUDIO_PLAYER" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
@@ -92,7 +92,7 @@
 
         <!-- Search interface -->
         <activity
-            android:name="com.cyanogenmod.eleven.ui.activities.SearchActivity"
+            android:name=".ui.activities.SearchActivity"
             android:exported="true"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustResize">
@@ -109,7 +109,7 @@
         </activity>
         <!-- Used to set options -->
         <activity
-            android:name="com.cyanogenmod.eleven.ui.activities.SettingsActivity"
+            android:name=".ui.activities.SettingsActivity"
             android:label="@string/menu_settings" />
         <!-- Audio Preview -->
         <activity
@@ -155,7 +155,7 @@
         </activity>
         <!-- 4x1 App Widget -->
         <receiver
-            android:name="com.cyanogenmod.eleven.appwidgets.AppWidgetSmall"
+            android:name=".appwidgets.AppWidgetSmall"
             android:exported="false"
             android:label="@string/app_widget_small">
             <intent-filter>
@@ -168,7 +168,7 @@
         </receiver>
         <!-- 4x2  App Widget -->
         <receiver
-            android:name="com.cyanogenmod.eleven.appwidgets.AppWidgetLarge"
+            android:name=".appwidgets.AppWidgetLarge"
             android:exported="false"
             android:label="@string/app_widget_large">
             <intent-filter>
@@ -181,7 +181,7 @@
         </receiver>
         <!-- 4x2 alternate App Widget -->
         <receiver
-            android:name="com.cyanogenmod.eleven.appwidgets.AppWidgetLargeAlternate"
+            android:name=".appwidgets.AppWidgetLargeAlternate"
             android:exported="false"
             android:label="@string/app_widget_large_alt">
             <intent-filter>
@@ -193,7 +193,7 @@
                 android:resource="@xml/app_widget_large_alternate" />
         </receiver>
         <!-- Media button receiver -->
-        <receiver android:name="com.cyanogenmod.eleven.MediaButtonIntentReceiver">
+        <receiver android:name=".MediaButtonIntentReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.MEDIA_BUTTON" />
                 <action android:name="android.media.AUDIO_BECOMING_NOISY" />
@@ -201,9 +201,8 @@
         </receiver>
         <!-- Music service -->
         <service
-            android:name="com.cyanogenmod.eleven.MusicPlaybackService"
-            android:label="@string/app_name"
-            android:process=":main" />
+            android:name=".MusicPlaybackService"
+            android:label="@string/app_name" />
     </application>
 
 </manifest>

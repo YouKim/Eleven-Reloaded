@@ -13,7 +13,7 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<com.cyanogenmod.eleven.widgets.BlurScrimImage xmlns:android="http://schemas.android.com/apk/res/android"
+<com.cyanogenmod.eleven2.widgets.BlurScrimImage xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/blurScrimImage"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -30,4 +30,4 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical" />
-</com.cyanogenmod.eleven.widgets.BlurScrimImage>
+</com.cyanogenmod.eleven2.widgets.BlurScrimImage>
