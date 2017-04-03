@@ -70,8 +70,8 @@ import java.util.WeakHashMap;
  */
 public final class MusicUtils {
 
-    public static final String MUSIC_ONLY_SELECTION = MediaStore.Audio.AudioColumns.IS_MUSIC + "=1"
-            + " AND " + MediaStore.Audio.AudioColumns.TITLE + " != ''"; //$NON-NLS-2$
+    public static final String MUSIC_ONLY_SELECTION = AudioColumns.IS_MUSIC + "=1"
+            + " AND " + AudioColumns.TITLE + " != ''" + " AND " + AudioColumns.DURATION + " > 0"; //$NON-NLS-2$
     public static final long UPDATE_FREQUENCY_MS = 500;
     public static final long UPDATE_FREQUENCY_FAST_MS = 30;
     private static final WeakHashMap<Context, ServiceBinder> mConnectionMap;
