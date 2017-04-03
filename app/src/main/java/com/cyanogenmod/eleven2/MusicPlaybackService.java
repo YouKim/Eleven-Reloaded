@@ -68,6 +68,7 @@ import com.cyanogenmod.eleven2.utils.BitmapWithColors;
 import com.cyanogenmod.eleven2.utils.Lists;
 import com.cyanogenmod.eleven2.utils.ShakeDetector;
 import com.cyanogenmod.eleven2.utils.SrtManager;
+import com.google.android.exoplayer2.C;
 import com.google.android.exoplayer2.DefaultLoadControl;
 import com.google.android.exoplayer2.ExoPlaybackException;
 import com.google.android.exoplayer2.ExoPlayer;
@@ -3129,7 +3130,14 @@ public class MusicPlaybackService extends Service {
          * @return The duration in milliseconds
          */
         public long duration() {
-            return mCurrentMediaPlayer.getDuration();
+
+            long duration = mCurrentMediaPlayer.getDuration();
+
+            if (duration == C.TIME_UNSET) {
+                return 0;
+            }
+
+            return duration;
         }
 
         /**

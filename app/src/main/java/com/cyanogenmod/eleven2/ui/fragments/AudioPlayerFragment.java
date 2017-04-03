@@ -82,6 +82,8 @@ public class AudioPlayerFragment extends Fragment implements ServiceConnection {
     private static final int GROUP_ID = 15;
     // Message to refresh the time
     private static final int REFRESH_TIME = 1;
+    // Message to refresh the total time
+    private static final int REFRESH_TOTAL_TIME = 2;
     // fragment view
     private ViewGroup mRootView;
     // Header views
@@ -420,9 +422,18 @@ public class AudioPlayerFragment extends Fragment implements ServiceConnection {
         mArtistName.setText(MusicUtils.getArtistName());
 
         // Set the total time
-        String totalTime = MusicUtils.makeShortTimeString(getActivity(), MusicUtils.duration() / 1000);
-        if (!mTotalTime.getText().equals(totalTime)) {
-            mTotalTime.setText(totalTime);
+        long duration = MusicUtils.duration();
+
+        if (duration > 0) {
+            String totalTime = MusicUtils.makeShortTimeString(getActivity(), duration / 1000);
+            if (!mTotalTime.getText().equals(totalTime)) {
+                mTotalTime.setText(totalTime);
+            }
+        } else {
+            mCurrentTime.setText("--:--");
+            final Message message = mTimeHandler.obtainMessage(REFRESH_TOTAL_TIME);
+            mTimeHandler.removeMessages(REFRESH_TOTAL_TIME);
+            mTimeHandler.sendMessageDelayed(message, 500);
         }
 
         if (MusicUtils.getRepeatMode() == MusicPlaybackService.REPEAT_CURRENT) {
@@ -573,6 +584,22 @@ public class AudioPlayerFragment extends Fragment implements ServiceConnection {
             }
         }
         return MusicUtils.UPDATE_FREQUENCY_MS;
+    }
+
+    private void refreshTotalTime() {
+        long duration = MusicUtils.duration();
+
+        if (duration > 0) {
+            String totalTime = MusicUtils.makeShortTimeString(getActivity(), duration / 1000);
+            if (!mTotalTime.getText().equals(totalTime)) {
+                mTotalTime.setText(totalTime);
+            }
+        } else {
+            mCurrentTime.setText("--:--");
+            final Message message = mTimeHandler.obtainMessage(REFRESH_TOTAL_TIME);
+            mTimeHandler.removeMessages(REFRESH_TOTAL_TIME);
+            mTimeHandler.sendMessageDelayed(message, 500);
+        }
     }
 
     public void showPopupMenu() {
@@ -737,13 +764,14 @@ public class AudioPlayerFragment extends Fragment implements ServiceConnection {
                     final long next = mAudioPlayer.get().refreshCurrentTime();
                     mAudioPlayer.get().queueNextRefresh(next);
                     break;
+                case REFRESH_TOTAL_TIME:
+                    mAudioPlayer.get().refreshTotalTime();
+                    break;
                 default:
                     break;
             }
         }
     }
-
-    ;
 
     /**
      * Used to monitor the state of playback
